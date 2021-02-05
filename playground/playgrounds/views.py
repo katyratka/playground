@@ -1,4 +1,7 @@
 from django.shortcuts import render
+from django.http import HttpResponseRedirect
+
 
 def get_playgrounds(request):
-    return render(request, 'playgrounds.html', {})
+    url = request.GET.get("next", "/")
+    return HttpResponseRedirect(url)
